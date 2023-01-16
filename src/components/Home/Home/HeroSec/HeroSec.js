@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import texture from '../../../../asset/Texture.png';
 import background from '../../../../asset/Background.png'
 import Logo from '../../../../asset/Logo.png'
+import Card from './Card/Card';
 
 
 const Pokemons_Query = `
@@ -20,21 +21,7 @@ query pokemons($limit: Int, $offset: Int) {
     }
   }
 `
-const Ability_Query = `
-query pokemon($name: String!) {
-    pokemon(name: $name) {
-      id
-      name
-      types {
-        type {
-          name
-        }
-      }
-      message
-      status
-    }
-  }
-`
+
 
 const HeroSec = () => {
     const [data, setdata] = useState([])
@@ -46,9 +33,9 @@ const HeroSec = () => {
             headers : {"Content-Type" : "application/json"},
             body : JSON.stringify(
                {
-                query: Ability_Query,
+                query: Pokemons_Query,
                 variables: `{
-                    "name": "bulbasaur"
+                    "limit": 10
                   }`    
             }
                 )
@@ -56,21 +43,19 @@ const HeroSec = () => {
         .then(response => response.json())
         .then(data => {
             console.log(data.data)
-            // setdata(data.data.pokemons.results)
+            setdata(data.data.pokemons.results)
         })
     },[]);
 
 
     return (
-        <div className="hero min-h-screen bg-center bg-no-repeat bg-cover max-h-[1080px]" style={{backgroundImage:`url(${background})`}}>
-            <div className="hero min-h-screen bg-center bg-no-repeat bg-cover max-h-[1080px]" style={{backgroundImage:`url(${texture})`}}>
+        <div className=" bg-center bg-no-repeat bg-cover min-w-[1921px]  min-h-[1080px] grid justify-center" style={{backgroundImage:`url(${background})`}}>
+            <div className=" bg-center bg-no-repeat bg-cover min-h-[1080px]" style={{backgroundImage:`url(${texture})`}}>
                 <div className='grid justify-center '>
                     <img className='mt-16' src={Logo} alt='Logo'/>
                 </div>
-                <div>
-                    {
-                        data.map((pokemon,i) => <h1 key={i}>{pokemon.name}</h1>)
-                    }
+                <div >
+                    <Card data={data}></Card>
                 </div>
             </div>
         </div>
