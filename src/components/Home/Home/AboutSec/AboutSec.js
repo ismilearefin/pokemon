@@ -10,24 +10,25 @@ import image5 from "../../../../asset/Image05.png";
 
 const AboutSec = () => {
   return (
-    <div className="relative min-w-[1921px] min-h-[1080px]">
-      <img className="absolute left-0" src={left} alt="left side design" />
+    <div className="relative md:min-w-[1921px] md:min-h-[1080px]">
+      <img className="hidden md:block absolute left-0" src={left} alt="left side design" />
       <img
-        className="absolute right-[0px]"
+        className="hidden md:block absolute right-[0px]"
         src={right}
         alt="right side design"
       />
       <div className="grid justify-center ">
         <div
-          className="bg-center bg-no-repeat  mt-[107px] mb-[68px]"
+          className="bg-cover  md:bg-auto bg-center bg-no-repeat   mt-[107px] mb-[68px]"
           style={{ backgroundImage: `url(${Brush})` }}
         >
-          <p className="font-[Ubuntu-Bold] leading-[48px] text-center font-bold text-5xl text-[#257BC4]">
+          <p className="font-[Ubuntu-Bold] md:leading-[48px] text-center font-bold text-2xl md:text-5xl text-[#257BC4]">
             Ash & Pikachu Arrive in <br /> Pokémon Universe
           </p>
         </div>
 
-        <div className="w-[1546px] mb-24">
+     {/* for Destop view */}
+        <div className="hidden md:block md:w-[1546px] mb-24">
           <div className="font-[Ubuntu-Regular] text-base font-normal text-justify leading-[18px]">
             <div className="grid grid-cols-7 grid-row-6  gap-4">
               <p className="col-span-3 ">
@@ -165,6 +166,49 @@ const AboutSec = () => {
             </div>
           </div>
         </div>
+      </div>
+      {/* for mobile view */}
+      <div className="block md:hidden w-[390px]">
+          <p className="mx-5 font-[Ubuntu-Regular] text-base font-normal">Lorem ipsum dolor sit amet consectetur. Risus cursus nibh elementum ornare a aliquet ac. Feugiat scelerisque ultrices tempor facilisi tempus risus nunc. Proin quis morbi posuere nisl etiam scelerisque. Proin pretium gravida semper ut erat nisi. Pulvinar ac mattis porta amet et. Nisl urna non fames felis leo. Vitae pulvinar sed viverra sit pretium lorem elementum. Iaculis sit maecenas sodales mi convallis justo aliquam. Tincidunt semper ut ornare vivamus lectus.</p>
+          <div className="grid grid-cols-3 grid-row-5 m-4 gap-4">
+          {/* 01 */}
+          <div className="row-span-1 "></div>
+          {/* 02 */}
+          <img
+                className="w-[108px] row-span-2 "
+                src={image1}
+                alt="image05"
+              />
+          {/* 03 */}
+          <div className="row-span-1"></div>
+          {/* 04 */}
+          <img
+                className="w-[108px] row-span-2 mt-10"
+                src={image2}
+                alt="image05"
+              />
+          {/* 05 */}
+          <img
+                className="w-[108px] row-span-2 mt-10"
+                src={image3}
+                alt="image05"
+              />
+          {/* 06 */}
+          <img
+                className="w-[108px] row-span-2"
+                src={image4}
+                alt="image05"
+              />
+          {/* 07 */}
+          <div className="row-span-2"></div>
+          <img
+                className="w-[108px] row-span-2 mt-[-24px]"
+                src={image5}
+                alt="image05"
+              />
+          
+          </div>
+          <p className="mx-5 font-[Ubuntu-Regular] text-base font-normal">Lorem ipsum dolor sit amet consectetur. Risus cursus nibh elementum ornare a aliquet ac. Feugiat scelerisque ultrices tempor facilisi tempus risus nunc. Proin quis morbi posuere nisl etiam scelerisque. Proin pretium gravida semper ut erat nisi. Pulvinar ac mattis porta amet et. Nisl urna non fames felis leo. Vitae pulvinar sed viverra sit pretium lorem elementum. Iaculis sit maecenas sodales mi convallis justo aliquam. Tincidunt semper ut ornare vivamus lectus.</p>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import Home from './components/Home/Home/Home';
 
 function App() {
   return (
-    <div className='max-w-[1921px] mx-auto'>
+    <div className='md:max-w-[1921px] mx-auto'>
         <Home></Home>
     </div>
   );
