@@ -1,0 +1,12 @@
+.pokemonCard{
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(100% 0, 100% 83%, 80% 100%, 0 100%, 0 0);
+    transition: background-color 0.5s ease-in-out 50ms;
+}
+
+.pokemonCard:hover{
+    background-color: #66a8e2;
+    color: white;
+}
